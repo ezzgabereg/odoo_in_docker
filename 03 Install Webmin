@@ -1,0 +1,14 @@
+sudo apt update
+sudo apt -y upgrade
+sudo nano /etc/apt/sources.list
+
+Go to last line add the following then save and close (Ctrl X then Y)
+  deb http://download.webmin.com/download/repository sarge contrib
+
+Run the following:
+  wget -q -0- http://www.webmin.com/jcameron-key.asc | sudo apt-key add 
+
+sudo apt update
+sudo apt install -y webmin
+
+sudo reboot server
