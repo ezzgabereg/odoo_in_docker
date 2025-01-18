@@ -1,0 +1,9 @@
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+sudo ufw allow 80
+sudo ufw allow 4545
+sudo ufw allow 10000
+sudo ufw enable
+service ufw restart
+sudo reboot
