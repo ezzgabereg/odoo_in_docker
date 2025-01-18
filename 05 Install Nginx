@@ -1,44 +1,46 @@
 Create docker folder
   cd /
-    mkdir docker
-    cd docker
-      mkdir main
-      mkdir nginx
-      mkdir portainer
+  sudo mkdir docker
+
+  cd docker
+    sudo mkdir main
+    sudo mkdir nginx
+    sudo mkdir portainer
 
 cd nginx
     sudo nano docker-compose.yml
-      version: '3'
-      services:
-        app:
-          image: 'jc21/nginx-proxy-manager:latest'
-          restart: unless-stopped
-          ports:
-            - '80:80'
-            - '81:81'
-            - '443:443'
-          environment:
-            DB_MYSQL_HOST: 'db'
-            DB_MYSQL_PORT: 3306
-            DB_MYSQL_USER: 'npm'
-            DB_MYSQL_PASSWORD: 'npm'
-            DB_MYSQL_NAME: 'npm'
-          volumes:
-            - ./data:/data
-            - ./letsencrypt:/etc/letsencrypt
-        db:
-          image: 'jc21/mariadb-aria:latest'
-          environment:
-            MYSQL_ROOT_PASSWORD: 'npm'
-            MYSQL_DATABASE: 'npm'
-            MYSQL_USER: 'npm'
-            MYSQL_PASSWORD: 'npm'
-          volumes:
-            - ./data/mysql:/var/lib/mysql
+---------------------------------------------------
+version: '3'
+services:
+  app:
+    image: 'jc21/nginx-proxy-manager:latest'
+    restart: unless-stopped
+    ports:
+      - '80:80'
+      - '81:81'
+      - '443:443'
+    environment:
+      DB_MYSQL_HOST: 'db'
+      DB_MYSQL_PORT: 3306
+      DB_MYSQL_USER: 'npm'
+      DB_MYSQL_PASSWORD: 'npm'
+      DB_MYSQL_NAME: 'npm'
+    volumes:
+      - ./data:/data
+      - ./letsencrypt:/etc/letsencrypt
+  db:
+    image: 'jc21/mariadb-aria:latest'
+    environment:
+      MYSQL_ROOT_PASSWORD: 'npm'
+      MYSQL_DATABASE: 'npm'
+      MYSQL_USER: 'npm'
+      MYSQL_PASSWORD: 'npm'
+    volumes:
+      - ./data/mysql:/var/lib/mysql
 ---------------------------------------------------
 cd /
   cd docker/nginx
-    docker-compose up -d
+    sudo docker-compose up -d
 
 after installation complete open http://server ip:81
 login using (admin@example.com / changene) then follow the instructions to chnage the user & password
