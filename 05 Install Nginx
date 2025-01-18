@@ -35,3 +35,10 @@ Create docker folder
                 MYSQL_PASSWORD: 'npm'
             volumes:
               - ./data/mysql:/var/lib/mysql
+---------------------------------------------------
+cd /
+  cd docker/nginx
+    docker-compose up -d
+
+after installation complete open http://server ip:81
+login using (admin@example.com / changene) then follow the instructions to chnage the user & password
