@@ -1,0 +1,7 @@
+Remote to server again
+nano /etc/ssh/sshd_config
+change the following paramters
+  PermitRootLogin yes
+  Port 4545
+Reboot server
+Login again using new port "ssh -p 4545 root@server ip"
