@@ -1,1 +1,9 @@
-
+cd /docker/main/config
+  sudo nano odoo.config
+    [options]
+    addons_path = /mnt/extra-addons,/mnt/enterprise-addons
+    db_host = main_db_1
+    db_user = odoo
+    db_password = pysmh
+    log_db = True
+    logfile=/var/log/odoo/odoo-server.log
