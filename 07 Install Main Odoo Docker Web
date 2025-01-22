@@ -10,7 +10,7 @@ services:
     image: odoo:14.0
     restart: always
     networks:
-      -nginx_default
+      - nginx_default
     depends_on:
       - db
     ports:
@@ -44,3 +44,5 @@ networks:
 nginx_default:
   external: true
 -------------------------------------------------
+
+sudo docker-compose up -d
