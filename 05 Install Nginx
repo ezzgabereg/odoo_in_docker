@@ -42,4 +42,4 @@ cd /
     sudo docker-compose up -d
 
 after installation complete open http://server ip:81
-login using (admin@example.com / changene) then follow the instructions to chnage the user & password
+login using (admin@example.com / changeme) then follow the instructions to chnage the user & password
