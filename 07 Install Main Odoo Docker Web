@@ -14,7 +14,7 @@ services:
     depends_on:
       - db
     ports:
-      -"8888:8069"
+      - "8888:8069"
     volumes:
       - /docker/main/adoo-web-data:/var/lib/odoo
       - /docker/main/config:/etc/odoo
@@ -25,24 +25,24 @@ services:
       --without-demo
       --dev=all
       --database DB
-    db:
-      image: postgres:12
-      restart: always
-      networks:
-        - nginx_default
-      ports:
-        - "7777:5432"
-      environment:
-        - POSTGRES_DB=postgres
-        - POSTGRES PASSWORD=pysmh
-        - POSTGRES_USER=odoo
-        - PGDATA=/var/lib/postgresql/data/pgdata
-      volumes:
-        - /docker/main/odoo-db-data:/var/lib/postgresql/data/pgdata
-        - /docker/main/db_backup:/db_backup
+  db:
+    image: postgres:12
+    restart: always
+    networks:
+      - nginx_default
+    ports:
+      - "7777:5432"
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_PASSWORD=pysmh
+      - POSTGRES_USER=odoo
+      - PGDATA=/var/lib/postgresql/data/pgdata
+    volumes:
+      - /docker/main/odoo-db-data:/var/lib/postgresql/data/pgdata
+      - /docker/main/db_backup:/db_backup
 networks:
-nginx_default:
-  external: true
+  nginx_default:
+    external: true
 -------------------------------------------------
 
 sudo docker-compose up -d
