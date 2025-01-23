@@ -4,10 +4,10 @@ cd docker/main
 
 Write code install odoo
 
-version: '3.7'
+version: '3.1'
 services:
   web:
-    image: odoo:18.0-nano
+    image: odoo:17.0
     restart: always
     networks:
       - nginx_default
@@ -26,7 +26,7 @@ services:
       --dev=all
       --database DB
   db:
-    image: postgres:12
+    image: postgres:15
     restart: always
     networks:
       - nginx_default
